@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        background: url(bgh.jpg);
+        background-position: center;
+        background-size: cover;
+
+    }
+
+    .container {
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 5px;
+        filter: brightness(1);
+        position: absolute;
+        right: 10%;
+        top: 25%;
+    }
+
+    .container .middle {
+        text-align: center;
+    }
+
+    .middle h3 {
+        font-size: 1.3rem;
+    }
+
+    #int_m {
+       padding: 1px 10px ;
+      margin:0px 60px 2px 0px;
+      width: 90%;
+    }
+
+    .middle input {
+        height: 25px;
+        outline: none;
+        border-radius: 5px;
+    }
+
+    .middle #btn {
+        height: 30px;
+        width: 190px;
+        margin: 5px 0px;
+        background: blue;
+        color: #FFF;
+        outline: none;
+    }
+
+    #sendotp {
+        background: rgb(0, 191, 255);
+        color: #fff;
+    }
+
+    #heading {
+        color: rgba(0, 0, 0, 0.867);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="middle">
+
+            <div>
+                <div>
+                    <h2 id="heading">This is varification Form</h2>
+                </div>
+                <div>
+                    <input placeholder="Enter your mobile number" id="int_m">
+                </div>
+                <input name="inputdate" id="inp" placeholder="Enter your OPT Here">
+                <input type="submit" value="SEND OTP" id="sendotp">
+            </div>
+            <div>
+                <button id="btn">VARIFY</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let btn = document.getElementById('btn');
+    let sendotp = document.getElementById('sendotp');
+    let int_m=document.getElementById('int_m');
+    sendotp.addEventListener('click', () => {
+        if(int_m.value==""){
+            alert('enter your mobile number')
+        }
+        else{
+        var y = Math.floor(Math.random() * 10000);
+        alert('OTP send successfully in your console.....')
+        console.log('this is your varification otp' + " " + y);
+        }
+
+        btn.addEventListener('click', () => {
+            let inp = document.getElementById('inp').value;
+            if (y == inp) {
+                alert('your OTP varification successfully');
+                window.location.reload();
+            }
+            else if (inp == "") {
+                alert('Please Enter your OTP')
+            }
+            else {
+                alert('invalid otp')
+            }
+        })
+    })
+</script>
+
+</html>
